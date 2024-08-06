@@ -3,9 +3,10 @@ import { IoSearchSharp } from "react-icons/io5";
 import { IoHomeOutline } from "react-icons/io5";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, ScrollRestoration } from "react-router-dom";
 import SelectTopic from "../SelectTopic/SelectTopic";
 import { fetchPosts, searchPosts } from "../../store/craftsnarkSlice";
+import styles from "./header.module.css";
 
 const Header = () => {
     const [localSearch, setLocalSearch ] = useState('');
@@ -31,11 +32,28 @@ const Header = () => {
 
     return (
         <div>
-           <FcReddit /> 
-           <SelectTopic />
-           <button onClick={() => handleClick()}><IoHomeOutline/></button>
-           <input type="text" value={localSearch} onChange={e => setLocalSearch(e.target.value)} onKeyDown={(e) => handleEnter(e)}/>
-           <button onClick={() => handleSearch()}><IoSearchSharp /></button> 
+            <ScrollRestoration />
+           <div className={styles.logo}>
+                <FcReddit size='2em' />
+           </div>
+           <div className={styles.header}>
+                <button onClick={() => handleClick()}>
+                    <IoHomeOutline/>
+                </button>
+                <div>
+                    <SelectTopic />
+                </div>
+                <div>
+                    <input type="text" 
+                        value={localSearch} 
+                        onChange={e => setLocalSearch(e.target.value)} 
+                        onKeyDown={(e) => handleEnter(e)}/>
+                    <button onClick={() => handleSearch()}
+                        className={styles.searchButton}>
+                        <IoSearchSharp />
+                    </button>
+                </div>
+           </div>
         </div>
     )
 }

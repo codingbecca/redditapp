@@ -1,0 +1,15 @@
+select {
+    margin-right: 5px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+input[type=submit] {
+   border-radius: 5px; 
+}
+
+select {
+    border-radius: 5px;
+}

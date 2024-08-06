@@ -4,6 +4,7 @@ import Post from "../Post/Post";
 import PostLoading from "../Post/PostLoading";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import styles from "./home.module.css";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -44,15 +45,15 @@ const Home = () => {
         )
     }
     return (
-        <>
+        <div className={styles.postsContainer}>
             {posts.map((post) =>(
-                <div key={post.id}>
+                <div key={post.id} className={styles.container}>
                     <Link to={`/${post.id}`}>
                         <Post post={post} postType='preview' />
                     </Link>
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 

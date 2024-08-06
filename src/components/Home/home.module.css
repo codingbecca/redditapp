@@ -1,0 +1,22 @@
+.container {
+    max-width: 500px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 1em;
+    padding: 0.5em;
+    background-color: #f9f9f9;
+}
+
+.container a {
+    color: black;
+}
+
+.container:hover {
+    background-color: #efefef;
+}
+
+.postsContainer {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}

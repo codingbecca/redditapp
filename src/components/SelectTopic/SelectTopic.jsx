@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchPostsByFlair } from "../../store/craftsnarkSlice";
+import styles from "./selectTopic.module.css";
 
 const SelectTopic = () => {
     const [value, setValue] = useState('');
@@ -50,14 +51,14 @@ const SelectTopic = () => {
     return (
         <form onSubmit={handleSubmit}>
             <label className="form-label" htmlFor="topic">
-                Select posts by topic: 
-                <select name="topic" id="topic" onChange={handleChange} value={value}>
-                    <option value='' hidden>Select a topic</option>
-                    {topics.map((topic, index) =>(
-                        <option key={index} value={index}>{topic}</option>
-                    ))}
-                </select>
+                Select posts by topic:
             </label>
+            <select name="topic" id="topic" onChange={handleChange} value={value}>
+                <option value='' hidden>Select a topic</option>
+                {topics.map((topic, index) =>(
+                    <option key={index} value={index}>{topic}</option>
+                ))}
+            </select>
             <input type="submit" value='Get Posts' disabled={value === ''}/>
         </form>
     )
