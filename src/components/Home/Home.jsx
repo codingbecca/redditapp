@@ -20,20 +20,16 @@ const Home = () => {
     if(error) {
         return (
             <>
-                <p>Something went wrong.</p>
+                <p>Something went wrong.</p> <button onClick={() => dispatch(fetchPosts())}>Return to r/craftsnark</button>
             </>
         )
     }
 
     if(isLoading) {
         return (
-           <>
-                <PostLoading />
-                <PostLoading />
-                <PostLoading />
-                <PostLoading />
-                <PostLoading />
-           </> 
+           <div className={styles.postsContainer}>
+                {Array(27).fill(null).map((_, index) => <div className={styles.container}><PostLoading key={index}/></div>)}
+           </div> 
         )
     }
 
